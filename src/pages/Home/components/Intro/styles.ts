@@ -7,7 +7,7 @@ export const IntroWrapper = styled.div`
   padding: 92px 0;
   gap: 56px;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${(props) => props.theme['medium-size']}px) {
     flex-direction: column;
     padding: 2rem 0;
 
@@ -16,7 +16,7 @@ export const IntroWrapper = styled.div`
     }
 
     img {
-      width: 90%;
+      width: 350px;
     }
   }
 `
@@ -51,7 +51,7 @@ export const Items = styled.div`
   grid-template-columns: 231px 1fr;
   gap: 20px;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${(props) => props.theme['medium-size']}px) {
     display: flex;
     flex-direction: column;
   }
