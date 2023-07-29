@@ -19,5 +19,6 @@ export const defaultTheme = {
   yellow: '#DBAC2C',
   'yellow-dark': '#C47F17',
 
-  'medium-size': 1300,
+  'medium-size': 1290,
+  'small-size': 900,
 }

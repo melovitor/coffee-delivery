@@ -1,15 +1,31 @@
 import { CoffeeCard } from '../../components/CoffeeCard'
 import { Intro } from './components/Intro'
-import { Cards } from './styles'
+import { Cards, CardsContainer, Title } from './styles'
+import { CoffeeList } from './CoffeeList'
 
 export function Home() {
+  console.log(CoffeeList)
   return (
     <>
       <Intro />
-      <Cards>
-        <CoffeeCard cardType="CATALOG" />
-        <CoffeeCard cardType="CART" />
-      </Cards>
+      <Title>Nossos cafés</Title>
+      <CardsContainer>
+        <Cards>
+          {CoffeeList.map((coffee) => {
+            return (
+              <CoffeeCard
+                id={coffee.id}
+                name={coffee.name}
+                description={coffee.description}
+                price={coffee.price}
+                tags={coffee.tags}
+                src={coffee.src}
+                key={coffee.id}
+              />
+            )
+          })}
+        </Cards>
+      </CardsContainer>
     </>
   )
 }

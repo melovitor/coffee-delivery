@@ -14,31 +14,53 @@ import {
   Price,
   Remove,
   Tag,
+  Tags,
   Titles,
 } from './styles'
 import { useState } from 'react'
 
 interface CardType {
-  cardType: 'CATALOG' | 'CART'
+  cardType?: 'CATALOG' | 'CART'
+  id: number
+  src: string
+  name: string
+  description: string
+  tags: string[]
+  price: string
 }
 
-export function CoffeeCard({ cardType = 'CATALOG' }: CardType) {
+export function CoffeeCard({
+  cardType = 'CATALOG',
+  id,
+  name,
+  description,
+  tags,
+  price,
+  src,
+}: CardType) {
   const [quantity, setQuantity] = useState(0)
+  console.log(tags)
 
   return (
     <>
       {cardType === 'CATALOG' ? (
         <CardContainer>
-          <CoffeeImage src={Expresso} alt="" />
-          <Tag>tradicional</Tag>
+          <CoffeeImage src={src} alt="" />
+          <Tags>
+            {tags.map((tag) => {
+              return <Tag key={id}>{tag}</Tag>
+            })}
+          </Tags>
+
           <Titles>
-            <h1>Expresso Tradicional</h1>
-            <h2>O tradicional café feito com água quente e grãos moídos</h2>
+            <h1>{name}</h1>
+            <h2>{description}</h2>
           </Titles>
 
           <Buy>
             <Price>
-              <span>R$ </span>9,99
+              <span>R$ </span>
+              {price}
             </Price>
             <div>
               <Counter>

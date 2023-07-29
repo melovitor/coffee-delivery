@@ -177,3 +177,7 @@ export const Actions = styled.div`
   align-items: center;
   gap: 8px;
 `
+export const Tags = styled.div`
+  display: flex;
+  gap: 4px;
+`
