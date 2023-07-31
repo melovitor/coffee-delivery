@@ -130,6 +130,13 @@ export const CardCartContainer = styled.div`
     font-size: 16px;
     font-weight: normal;
   }
+
+  @media (max-width: ${(props) => props.theme['medium-size']}px) {
+    width: 18rem;
+    padding: 20px;
+    height: 9rem;
+    text-align: center;
+  }
 `
 
 export const InfoCard = styled.div`
@@ -176,8 +183,19 @@ export const Actions = styled.div`
   justify-content: center;
   align-items: center;
   gap: 8px;
+
+  @media (max-width: ${(props) => props.theme['medium-size']}px) {
+    flex-direction: column;
+  }
 `
 export const Tags = styled.div`
   display: flex;
   gap: 4px;
+`
+
+export const Separator = styled.div`
+  width: 100%;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  border-top: 1px solid ${(props) => props.theme['base-button']};
 `

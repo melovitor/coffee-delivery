@@ -17,6 +17,19 @@ export const GlobalStyle = createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         font-family: 'Roboto', sans-serif;
     }
+
+    *::-webkit-scrollbar {
+        width: 5px; 
+    }
+
+    *::-webkit-scrollbar-track {
+        background: ${(props) => props.theme['base-hovered']}
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background: ${(props) => props.theme.yellow};
+        border-radius: 5px;     
+    }
     
 
 

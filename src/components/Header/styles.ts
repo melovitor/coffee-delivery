@@ -6,6 +6,7 @@ export const HeaderContainer = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 1rem 0;
+  background: ${(props) => props.theme.background};
 `
 
 export const InfoContainer = styled.div`

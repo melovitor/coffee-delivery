@@ -13,6 +13,7 @@ import {
   InfoCard,
   Price,
   Remove,
+  Separator,
   Tag,
   Tags,
   Titles,
@@ -25,7 +26,7 @@ interface CardType {
   src: string
   name: string
   description: string
-  tags: string[]
+  tags?: string[]
   price: string
 }
 
@@ -79,33 +80,36 @@ export function CoffeeCard({
           </Buy>
         </CardContainer>
       ) : (
-        <CardCartContainer>
-          <InfoCard>
-            <CoffeeImage src={Expresso} alt="" />
-            <Details>
-              <h1>Expresso Tradicional</h1>
-              <Actions>
-                <Counter>
-                  <span onClick={() => setQuantity(quantity - 1)}>
-                    <Minus size={14} weight="bold" />
-                  </span>
-                  <p>{quantity}</p>
-                  <span onClick={() => setQuantity(quantity + 1)}>
-                    <Plus size={14} weight="bold" />
-                  </span>
-                </Counter>
-                <Remove>
-                  <span>
-                    <Trash size={16} weight="bold" />
-                  </span>
-                  REMOVER
-                </Remove>
-              </Actions>
-            </Details>
-          </InfoCard>
+        <>
+          <CardCartContainer>
+            <InfoCard>
+              <CoffeeImage src={Expresso} alt="" />
+              <Details>
+                <h1>Expresso Tradicional</h1>
+                <Actions>
+                  <Counter>
+                    <span onClick={() => setQuantity(quantity - 1)}>
+                      <Minus size={14} weight="bold" />
+                    </span>
+                    <p>{quantity}</p>
+                    <span onClick={() => setQuantity(quantity + 1)}>
+                      <Plus size={14} weight="bold" />
+                    </span>
+                  </Counter>
+                  <Remove>
+                    <span>
+                      <Trash size={16} weight="bold" />
+                    </span>
+                    REMOVER
+                  </Remove>
+                </Actions>
+              </Details>
+            </InfoCard>
 
-          <CartPrice>R$9,99</CartPrice>
-        </CardCartContainer>
+            <CartPrice>R$9,99</CartPrice>
+          </CardCartContainer>
+          <Separator></Separator>
+        </>
       )}
     </>
   )
