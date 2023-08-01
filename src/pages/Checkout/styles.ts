@@ -71,6 +71,7 @@ export const TotalAmountContainer = styled.div`
 
 export const ButtonCheckout = styled.button`
   border: none;
+  width: 100%;
   height: 46px;
   border-radius: 6px;
   color: ${(props) => props.theme.white};

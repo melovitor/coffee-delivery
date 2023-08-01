@@ -1,5 +1,6 @@
 import { AddressForm } from './components/AddressForm'
 import { PaymentForm } from './components/PaymentForm'
+import { NavLink } from 'react-router-dom'
 import {
   ButtonCheckout,
   CartContainer,
@@ -50,7 +51,10 @@ export function Checkout() {
               <p>Total</p>
               <p>R$ 33,20</p>
             </div>
-            <ButtonCheckout>Confirmar pedido</ButtonCheckout>
+
+            <NavLink to={'/success'} title="Confirmar pedido">
+              <ButtonCheckout>Confirmar pedido</ButtonCheckout>
+            </NavLink>
           </TotalAmountContainer>
         </CartContainer>
       </CartWrapper>
