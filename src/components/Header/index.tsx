@@ -6,6 +6,7 @@ import {
   InfoContainer,
   CityContainer,
   CartContainer,
+  Notification,
 } from './styles'
 
 export function Header() {
@@ -21,6 +22,7 @@ export function Header() {
         </CityContainer>
         <NavLink to="checkout" title="Checkout">
           <CartContainer>
+            <Notification>3</Notification>
             <ShoppingCart size={22} weight="fill" />
           </CartContainer>
         </NavLink>

@@ -1,4 +1,5 @@
 import { Minus, Plus, ShoppingCartSimple, Trash } from 'phosphor-react'
+import { NavLink } from 'react-router-dom'
 import Expresso from '../../assets/coffee/Expresso.png'
 import {
   Actions,
@@ -76,9 +77,11 @@ export function CoffeeCard({
                   <Plus size={14} weight="bold" />
                 </span>
               </Counter>
-              <Cart>
-                <ShoppingCartSimple size={22} weight="fill" />
-              </Cart>
+              <NavLink to="checkout" title="Checkout">
+                <Cart>
+                  <ShoppingCartSimple size={22} weight="fill" />
+                </Cart>
+              </NavLink>
             </div>
           </Buy>
         </CardContainer>
