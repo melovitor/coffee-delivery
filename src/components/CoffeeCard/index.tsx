@@ -40,7 +40,6 @@ export function CoffeeCard({
   src,
 }: CardType) {
   const [quantity, setQuantity] = useState(0)
-  console.log(tags)
 
   return (
     <>
@@ -48,9 +47,11 @@ export function CoffeeCard({
         <CardContainer>
           <CoffeeImage src={src} alt="" />
           <Tags>
-            {tags.map((tag) => {
-              return <Tag key={id}>{tag}</Tag>
-            })}
+            {tags
+              ? tags.map((tag) => {
+                  return <Tag key={id}>{tag}</Tag>
+                })
+              : []}
           </Tags>
 
           <Titles>
@@ -65,7 +66,9 @@ export function CoffeeCard({
             </Price>
             <div>
               <Counter>
-                <span onClick={() => setQuantity(quantity - 1)}>
+                <span
+                  onClick={() => setQuantity(quantity > 0 ? quantity - 1 : 0)}
+                >
                   <Minus size={14} weight="bold" />
                 </span>
                 <p>{quantity}</p>
@@ -88,7 +91,11 @@ export function CoffeeCard({
                 <h1>Expresso Tradicional</h1>
                 <Actions>
                   <Counter>
-                    <span onClick={() => setQuantity(quantity - 1)}>
+                    <span
+                      onClick={() =>
+                        setQuantity(quantity > 0 ? quantity - 1 : 0)
+                      }
+                    >
                       <Minus size={14} weight="bold" />
                     </span>
                     <p>{quantity}</p>

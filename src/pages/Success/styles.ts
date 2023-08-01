@@ -69,10 +69,6 @@ export const IconContainer = styled.div`
   gap: 12px;
 `
 export const IconBase = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: red;
   width: 32px;
   height: 32px;
   padding: 8px;
