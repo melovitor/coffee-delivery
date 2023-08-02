@@ -19,7 +19,8 @@ import {
   Tags,
   Titles,
 } from './styles'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { CartContext } from '../../components/contexts/CartContext'
 
 interface CardType {
   cardType?: 'CATALOG' | 'CART'
@@ -41,6 +42,14 @@ export function CoffeeCard({
   src,
 }: CardType) {
   const [quantity, setQuantity] = useState(0)
+  const { setItems } = useContext(CartContext)
+
+  function handleAddItem() {
+    setQuantity(quantity + 1)
+    setItems({
+      id,
+    })
+  }
 
   return (
     <>
@@ -50,7 +59,7 @@ export function CoffeeCard({
           <Tags>
             {tags
               ? tags.map((tag) => {
-                  return <Tag key={id}>{tag}</Tag>
+                  return <Tag key={tag}>{tag}</Tag>
                 })
               : []}
           </Tags>
@@ -68,12 +77,14 @@ export function CoffeeCard({
             <div>
               <Counter>
                 <span
-                  onClick={() => setQuantity(quantity > 0 ? quantity - 1 : 0)}
+                  onClick={() => {
+                    setQuantity(quantity > 0 ? quantity - 1 : 0)
+                  }}
                 >
                   <Minus size={14} weight="bold" />
                 </span>
                 <p>{quantity}</p>
-                <span onClick={() => setQuantity(quantity + 1)}>
+                <span onClick={handleAddItem}>
                   <Plus size={14} weight="bold" />
                 </span>
               </Counter>
@@ -102,7 +113,7 @@ export function CoffeeCard({
                       <Minus size={14} weight="bold" />
                     </span>
                     <p>{quantity}</p>
-                    <span onClick={() => setQuantity(quantity + 1)}>
+                    <span onClick={handleAddItem}>
                       <Plus size={14} weight="bold" />
                     </span>
                   </Counter>

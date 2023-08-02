@@ -4,7 +4,6 @@ import { Cards, CardsContainer, Title } from './styles'
 import { CoffeeList } from './CoffeeList'
 
 export function Home() {
-  console.log(CoffeeList)
   return (
     <>
       <Intro />

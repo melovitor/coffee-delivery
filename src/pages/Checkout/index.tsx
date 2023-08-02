@@ -9,8 +9,23 @@ import {
   TotalAmountContainer,
 } from './styles'
 import { CoffeeCard } from '../../components/CoffeeCard'
+import { CartContext } from '../../components/contexts/CartContext'
+import { useContext, useState } from 'react'
 
 export function Checkout() {
+  const { setItems } = useContext(CartContext)
+  const [teste1, setTeste1] = useState(0)
+
+  function teste() {
+    setTeste1(teste1 + 1)
+
+    setItems([
+      {
+        id: teste1,
+      },
+    ])
+  }
+
   return (
     <CheckoutContainer>
       <div className="AddressAndPaymentForm">
@@ -31,7 +46,7 @@ export function Checkout() {
           />
           <CoffeeCard
             description="teste"
-            id={0}
+            id={1}
             name="teste"
             price="99"
             cardType="CART"
@@ -53,7 +68,7 @@ export function Checkout() {
             </div>
 
             <NavLink to={'/success'} title="Confirmar pedido">
-              <ButtonCheckout>Confirmar pedido</ButtonCheckout>
+              <ButtonCheckout onClick={teste}>Confirmar pedido</ButtonCheckout>
             </NavLink>
           </TotalAmountContainer>
         </CartContainer>

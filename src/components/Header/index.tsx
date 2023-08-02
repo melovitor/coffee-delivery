@@ -1,6 +1,8 @@
 import { ShoppingCart, MapPin } from 'phosphor-react'
 import { NavLink } from 'react-router-dom'
 import Logo from '../../assets/Logo.svg'
+import { useContext } from 'react'
+import { CartContext } from '../../components/contexts/CartContext'
 import {
   HeaderContainer,
   InfoContainer,
@@ -10,6 +12,8 @@ import {
 } from './styles'
 
 export function Header() {
+  const { cartItems } = useContext(CartContext)
+
   return (
     <HeaderContainer>
       <NavLink to="/" title="Home">
@@ -22,7 +26,7 @@ export function Header() {
         </CityContainer>
         <NavLink to="checkout" title="Checkout">
           <CartContainer>
-            <Notification>3</Notification>
+            <Notification>{cartItems}</Notification>
             <ShoppingCart size={22} weight="fill" />
           </CartContainer>
         </NavLink>
