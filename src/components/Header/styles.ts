@@ -55,4 +55,5 @@ export const Notification = styled.div`
   position: absolute;
   top: -8px;
   right: -8px;
+  padding: 11px;
 `

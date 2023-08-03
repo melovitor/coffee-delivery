@@ -30,6 +30,7 @@ interface CardType {
   description: string
   tags?: string[]
   price: string
+  amount: number
 }
 
 export function CoffeeCard({
@@ -40,15 +41,21 @@ export function CoffeeCard({
   tags,
   price,
   src,
+  amount,
 }: CardType) {
   const [quantity, setQuantity] = useState(0)
-  const { setItems } = useContext(CartContext)
+  const { setAddItems, setDeleteItems } = useContext(CartContext)
 
   function handleAddItem() {
     setQuantity(quantity + 1)
-    setItems({
-      id,
-    })
+    amount = quantity + 1
+    setAddItems()
+  }
+  function handleDeleteItem() {
+    setQuantity(quantity > 0 ? quantity - 1 : 0)
+    amount = quantity > 0 ? quantity - 1 : 0
+    if (quantity === 0) return
+    setDeleteItems()
   }
 
   return (
@@ -76,11 +83,7 @@ export function CoffeeCard({
             </Price>
             <div>
               <Counter>
-                <span
-                  onClick={() => {
-                    setQuantity(quantity > 0 ? quantity - 1 : 0)
-                  }}
-                >
+                <span onClick={handleDeleteItem}>
                   <Minus size={14} weight="bold" />
                 </span>
                 <p>{quantity}</p>
@@ -105,11 +108,7 @@ export function CoffeeCard({
                 <h1>Expresso Tradicional</h1>
                 <Actions>
                   <Counter>
-                    <span
-                      onClick={() =>
-                        setQuantity(quantity > 0 ? quantity - 1 : 0)
-                      }
-                    >
+                    <span onClick={handleDeleteItem}>
                       <Minus size={14} weight="bold" />
                     </span>
                     <p>{quantity}</p>

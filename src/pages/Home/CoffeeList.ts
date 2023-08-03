@@ -21,6 +21,7 @@ export const CoffeeList = [
     price: '5,50',
     src: Expresso,
     tags: ['Tradicional'],
+    amount: 0,
   },
   {
     id: 2,
@@ -29,6 +30,7 @@ export const CoffeeList = [
     price: '5,50',
     src: Americano,
     tags: ['Tradicional'],
+    amount: 0,
   },
   {
     id: 3,
@@ -37,6 +39,7 @@ export const CoffeeList = [
     price: '6,00',
     src: ExpressoCremoso,
     tags: ['Tradicional'],
+    amount: 0,
   },
   {
     id: 4,
@@ -45,6 +48,7 @@ export const CoffeeList = [
     price: '7,00',
     src: CafeGelado,
     tags: ['Tradicional', 'Gelado'],
+    amount: 0,
   },
   {
     id: 5,
@@ -53,6 +57,7 @@ export const CoffeeList = [
     price: '6,50',
     src: CafeComLeite,
     tags: ['Tradicional', 'Com Leite'],
+    amount: 0,
   },
   {
     id: 6,
@@ -62,6 +67,7 @@ export const CoffeeList = [
     price: '7,00',
     src: Latte,
     tags: ['Tradicional', 'Com Leite'],
+    amount: 0,
   },
   {
     id: 7,
@@ -71,6 +77,7 @@ export const CoffeeList = [
     price: '6,50',
     src: Capuccino,
     tags: ['Tradicional', 'Com Leite'],
+    amount: 0,
   },
   {
     id: 8,
@@ -80,6 +87,7 @@ export const CoffeeList = [
     price: '6,00',
     src: Macchiato,
     tags: ['Tradicional', 'Com Leite'],
+    amount: 0,
   },
   {
     id: 9,
@@ -88,6 +96,7 @@ export const CoffeeList = [
     price: '7,50',
     src: Mochaccino,
     tags: ['Tradicional', 'Com Leite'],
+    amount: 0,
   },
   {
     id: 10,
@@ -96,6 +105,7 @@ export const CoffeeList = [
     price: '8,00',
     src: ChocolateQuente,
     tags: ['Especial', 'Com Leite'],
+    amount: 0,
   },
   {
     id: 11,
@@ -105,6 +115,7 @@ export const CoffeeList = [
     price: '8,50',
     src: Cubano,
     tags: ['Especial', 'Alcoólico', 'Gelado'],
+    amount: 0,
   },
   {
     id: 12,
@@ -113,6 +124,7 @@ export const CoffeeList = [
     price: '7,50',
     src: Havaiano,
     tags: ['Especial'],
+    amount: 0,
   },
   {
     id: 13,
@@ -121,6 +133,7 @@ export const CoffeeList = [
     price: '8,00',
     src: Arabe,
     tags: ['Especial'],
+    amount: 0,
   },
 
   {
@@ -130,5 +143,6 @@ export const CoffeeList = [
     price: '9,00',
     src: Irlandes,
     tags: ['Especial', 'Alcoólico'],
+    amount: 0,
   },
 ]

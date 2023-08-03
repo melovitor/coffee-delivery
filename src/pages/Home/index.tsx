@@ -20,6 +20,7 @@ export function Home() {
                 tags={coffee.tags}
                 src={coffee.src}
                 key={coffee.id}
+                amount={coffee.amount}
               />
             )
           })}

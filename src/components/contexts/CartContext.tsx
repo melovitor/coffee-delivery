@@ -13,8 +13,9 @@ interface ItemData {
 // }
 
 interface CartArray {
-  cartItems: number
-  setItems: (items: ItemData[]) => void
+  amoutItems: number
+  setAddItems: () => void
+  setDeleteItems: () => void
 }
 
 interface CartContextProviderProps {
@@ -24,16 +25,19 @@ interface CartContextProviderProps {
 export const CartContext = createContext({} as CartArray)
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  const [cart, setCart] = useState<ItemData[]>([])
-  const [cartItems, setCartItems] = useState(0)
+  const [amoutItems, setAmountItems] = useState(0)
 
-  function setItems(item: ItemData[]) {
-    setCart((state) => [...state, item])
-    setCartItems(cart.length)
+  function setAddItems() {
+    setAmountItems(amoutItems + 1)
+    console.log(amoutItems)
+  }
+  function setDeleteItems() {
+    setAmountItems(amoutItems - 1)
+    console.log(amoutItems)
   }
 
   return (
-    <CartContext.Provider value={{ setItems, cartItems }}>
+    <CartContext.Provider value={{ setAddItems, amoutItems, setDeleteItems }}>
       {children}
     </CartContext.Provider>
   )

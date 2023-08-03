@@ -12,7 +12,7 @@ import {
 } from './styles'
 
 export function Header() {
-  const { cartItems } = useContext(CartContext)
+  const { amoutItems } = useContext(CartContext)
 
   return (
     <HeaderContainer>
@@ -26,7 +26,7 @@ export function Header() {
         </CityContainer>
         <NavLink to="checkout" title="Checkout">
           <CartContainer>
-            <Notification>{cartItems}</Notification>
+            <Notification>{amoutItems}</Notification>
             <ShoppingCart size={22} weight="fill" />
           </CartContainer>
         </NavLink>
