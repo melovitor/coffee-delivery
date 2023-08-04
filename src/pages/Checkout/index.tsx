@@ -11,20 +11,11 @@ import {
 import { CoffeeCard } from '../../components/CoffeeCard'
 import { CartContext } from '../../components/contexts/CartContext'
 import { useContext, useState } from 'react'
+import { CoffeeList } from '../Home/CoffeeList'
 
 export function Checkout() {
-  const { setItems } = useContext(CartContext)
-  const [teste1, setTeste1] = useState(0)
-
-  function teste() {
-    setTeste1(teste1 + 1)
-
-    setItems([
-      {
-        id: teste1,
-      },
-    ])
-  }
+  const { cartItems } = useContext(CartContext)
+  const [amount, setAmount] = useState(0)
 
   return (
     <CheckoutContainer>
@@ -34,29 +25,39 @@ export function Checkout() {
       </div>
       <CartWrapper>
         <h1>Cafés selecionados</h1>
-
         <CartContainer>
-          <CoffeeCard
-            description="teste"
-            id={0}
-            name="teste"
-            price="99"
-            cardType="CART"
-            src="teste"
-          />
-          <CoffeeCard
-            description="teste"
-            id={1}
-            name="teste"
-            price="99"
-            cardType="CART"
-            src="teste"
-          />
+          {cartItems.map((item) => {
+            let calculatedTotal = 0
+
+            for (let i = 0; i < CoffeeList.length; i++) {
+              if (CoffeeList[i].id === item.id) {
+                const price = CoffeeList[i].price.replace(',', '.')
+                const total = Number(price) * item.amount
+                const totalFotmated = new Intl.NumberFormat('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL',
+                }).format(total)
+                calculatedTotal = calculatedTotal + total
+                return (
+                  <CoffeeCard
+                    key={item.id}
+                    id={item.id}
+                    name={CoffeeList[i].name}
+                    price={totalFotmated}
+                    cardType="CART"
+                    src={CoffeeList[i].src}
+                    amount={item.amount}
+                  />
+                )
+              }
+            }
+            return null
+          })}
 
           <TotalAmountContainer>
             <div className="values">
               <p>Total de itens</p>
-              <p>R$ 29,70</p>
+              <p>{amount}</p>
             </div>
             <div className="values">
               <p>Entrega</p>
@@ -68,7 +69,7 @@ export function Checkout() {
             </div>
 
             <NavLink to={'/success'} title="Confirmar pedido">
-              <ButtonCheckout onClick={teste}>Confirmar pedido</ButtonCheckout>
+              <ButtonCheckout>Confirmar pedido</ButtonCheckout>
             </NavLink>
           </TotalAmountContainer>
         </CartContainer>

@@ -1,6 +1,5 @@
 import { Minus, Plus, ShoppingCartSimple, Trash } from 'phosphor-react'
 import { NavLink } from 'react-router-dom'
-import Expresso from '../../assets/coffee/Expresso.png'
 import {
   Actions,
   Buy,
@@ -27,7 +26,7 @@ interface CardType {
   id: number
   src: string
   name: string
-  description: string
+  description?: string
   tags?: string[]
   price: string
   amount: number
@@ -44,13 +43,15 @@ export function CoffeeCard({
   amount,
 }: CardType) {
   const [quantity, setQuantity] = useState(0)
-  const { setAddItems, setDeleteItems } = useContext(CartContext)
+  const { setAddItems, setDeleteItems, AddCartItems } = useContext(CartContext)
 
   function handleAddItem() {
     setQuantity(quantity + 1)
     amount = quantity + 1
     setAddItems()
+    AddCartItems({ id, amount })
   }
+
   function handleDeleteItem() {
     setQuantity(quantity > 0 ? quantity - 1 : 0)
     amount = quantity > 0 ? quantity - 1 : 0
@@ -103,15 +104,15 @@ export function CoffeeCard({
         <>
           <CardCartContainer>
             <InfoCard>
-              <CoffeeImage src={Expresso} alt="" />
+              <CoffeeImage src={src} alt="" />
               <Details>
-                <h1>Expresso Tradicional</h1>
+                <h1>{name}</h1>
                 <Actions>
                   <Counter>
                     <span onClick={handleDeleteItem}>
                       <Minus size={14} weight="bold" />
                     </span>
-                    <p>{quantity}</p>
+                    <p>{amount}</p>
                     <span onClick={handleAddItem}>
                       <Plus size={14} weight="bold" />
                     </span>
@@ -126,7 +127,7 @@ export function CoffeeCard({
               </Details>
             </InfoCard>
 
-            <CartPrice>R$9,99</CartPrice>
+            <CartPrice>{price}</CartPrice>
           </CardCartContainer>
           <Separator></Separator>
         </>
